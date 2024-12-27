@@ -1,0 +1,3 @@
+# Terminal
+
+vi ~/.zshrc

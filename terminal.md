@@ -14,6 +14,16 @@ alias ll="ls -l"
 EOF
 ```
 
+gpg
+
+```
+brew install --cask gpg-suite
+gpg --full-generate-key
+4096
+gpg --list-secret-keys --keyid-format LONG
+gpg --armor --export D25CD2DCD5C372AD
+```
+
 profile
 
 ```

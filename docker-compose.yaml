@@ -1,0 +1,45 @@
+```yaml
+services:
+  db:
+    image: mysql:8.0.39
+    container_name: db
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/conf.d:/etc/mysql/conf.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=grit
+      - MYSQL_DATABASE=devplayg
+      - MYSQL_USER=devplayg
+      - MYSQL_PASSWORD=grit
+      - LANG=C.UTF-8
+      - TZ=Asia/Seoul
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3306:3306"
+    networks:
+      - yunanet
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+  redis-cluster:
+    image: grokzen/redis-cluster:6.0.12
+    container_name: redis-c
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:7000-7005:7000-7005
+    networks:
+      - yunanet
+  
+  rock:
+    image: rockylinux:9.2
+    container_name: rock
+    tty: true
+    stdin_open: true
+    volumes:
+      - ~/gohome:/gohome
+    networks:
+      - yunanet
+
+networks:
+  yunanet:
+    driver: bridge
+```

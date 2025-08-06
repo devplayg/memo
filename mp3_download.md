@@ -5,6 +5,12 @@
 - https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
 
 ```
+cd /Users/won/volumns/python
+./yt-dlp -x --audio-format mp3 --add-metadata --embed-thumbnail https://music.youtube.com/watch?v=SUx0-btw2nQ&si=gvG17EQtWz1VJxBn
+
+```
+
+```
 docker run -it --rm -v /Users/won/volumns/python:/data python:3 bash
 ./yt-dlp -x --audio-format mp3 --add-metadata --embed-thumbnail https://sample.mp3
 ```
